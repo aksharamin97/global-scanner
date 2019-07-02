@@ -1,0 +1,46 @@
+Arguments: 
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js install
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/Java/jdk-12/bin:/mnt/c/Users/akshar.amin/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath_target_563024109:/mnt/c/ProgramData/Oracle/Java/javapath_target_575068312:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/Intel/WiFi/bin:/mnt/c/Program Files/Common Files/Intel/WirelessCommon:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/nodejs:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files (x86)/Yarn/bin:/mnt/c/Users/akshar.amin/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/akshar.amin/AppData/Local/Android/Sdk/platform-tools:/mnt/c/Users/akshar.amin/AppData/Local/hyper/app-3.0.2/resources/bin:/mnt/c/Users/akshar.amin/AppData/Roaming/npm:/mnt/c/Users/akshar.amin/AppData/Local/Yarn/bin
+
+Yarn version: 
+  1.15.2
+
+Node version: 
+  12.4.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/tmp/.yarn-cache-1000/v4/npm-react-native-maps-0.24.2-19974f967cb0c2e24dab74ca879118e0932571b2/node_modules/react-native-maps/ios/build/Index/DataStore/v5/records/ZL/RCTTextShadowView.h-2MMV0D04DPJZL' -> '/mnt/c/Users/akshar.amin/ReactNativeProject/global-scanner/node_modules/react-native-maps/ios/build/Index/DataStore/v5/records/ZL/RCTTextShadowView.h-2MMV0D04DPJZL'
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "^33.0.0",
+      "react": "16.8.3",
+      "react-dom": "^16.8.6",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+      "react-native-web": "^0.11.4"
+    },
+    "devDependencies": {
+      "babel-preset-expo": "^5.1.1"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
+import { compose } from 'recompose';
 
 export default class Profile extends React.Component{
   static navigationOptions = {

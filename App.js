@@ -7,17 +7,10 @@ import ScannerScreen from './screens/Scanner';
 
 import { createAppContainer, createStackNavigator, createDrawerNavigator } from 'react-navigation';
 
-export default class App extends React.Component{
-  render(){
-    return(
-      <AppContainer/>
-    )
-  }
-}
 
 
-//STACK NAV
-const AppStackNavigator = createStackNavigator(
+//AppStack
+const AppStack = createStackNavigator(
   {
     Home: {
       screen: HomeScreen
@@ -25,9 +18,7 @@ const AppStackNavigator = createStackNavigator(
     Landing: {
       screen: LandingScreen
     },
-    Scanner: {
-      screen: ScannerScreen
-    }
+
   },
   {
     initialRouteName:"Home",
@@ -41,6 +32,24 @@ const AppStackNavigator = createStackNavigator(
   // }
 );
 
+//RootStack
+const RootStack = createStackNavigator(
+  {
+    Scanner: {
+      screen: ScannerScreen
+    },
+    Main: {
+      screen: AppStack
+    }
+  },
+  {
+    // unmountInactiveRoutes: true,
+    initialRouteName:"Main",
+    mode: 'modal',
+    headerMode: 'none'
+
+  },
+);
 
 //DRAWER NAV
 // const AppDrawerNavigator = createDrawerNavigator(
@@ -68,15 +77,14 @@ const AppStackNavigator = createStackNavigator(
 // )
 
 
-const AppContainer = createAppContainer(AppStackNavigator);
+const AppContainer = createAppContainer(RootStack);
 
 
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default class App extends React.Component{
+  render(){
+    return(
+      <AppContainer/>
+    )
+  }
+}

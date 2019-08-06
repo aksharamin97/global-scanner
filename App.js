@@ -1,13 +1,76 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+import HomeScreen from './screens/Home';
+import LandingScreen from './screens/Landing';
+import ScannerScreen from './screens/Scanner';
+
+import { createAppContainer, createStackNavigator, createDrawerNavigator } from 'react-navigation';
+
+export default class App extends React.Component{
+  render(){
+    return(
+      <AppContainer/>
+    )
+  }
 }
+
+
+//STACK NAV
+const AppStackNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen
+    },
+    Landing: {
+      screen: LandingScreen
+    },
+    Scanner: {
+      screen: ScannerScreen
+    }
+  },
+  {
+    initialRouteName:"Home",
+  },
+  // {
+  //   defaultNavigationOptions: {
+  //     headerStyle:{
+  //       backgroundColor: 'orange'
+  //     }
+  //   }
+  // }
+);
+
+
+//DRAWER NAV
+// const AppDrawerNavigator = createDrawerNavigator(
+//   {
+//     Home: {
+//       screen: HomeScreen
+//     },
+//     Landing: {
+//       screen: LandingScreen
+//     },
+//     Scanner: {
+//       screen: ScannerScreen
+//     }
+//   },
+//   {
+//     initialRouteName:"Home"
+//   },
+//   {
+//     defaultNavigationOptions: {
+//       headerStyle:{
+//         backgroundColor: 'orange'
+//       }
+//     }
+//   }
+// )
+
+
+const AppContainer = createAppContainer(AppStackNavigator);
+
+
 
 const styles = StyleSheet.create({
   container: {

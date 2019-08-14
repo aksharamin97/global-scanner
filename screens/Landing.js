@@ -17,6 +17,7 @@ constructor(props){
   super(props);
   this.state = {
     isLoading:true,
+    invalid: false,
     gtin: null,
     brandName: null,
     gpc: null,
@@ -28,16 +29,31 @@ constructor(props){
   }
 }
 
+
+
 componentDidMount(){
   const { navigation } = this.props;
   const barcode_num = navigation.getParam('barcode_num', 'No Number');
   const barcode_type = navigation.getParam('barcode_type', 'No Type');
+
   return fetch('https://api-stg.gs1.org/registry/v2/gtin/'.concat(barcode_num, '/'),{
     headers: new Headers({
       'APIKey': api_file.api_key
     })
   })
-    .then(response => response.json())
+    .then((response) => {
+      console.log(response)
+      if (response.ok) {
+        return response.json()
+      }
+      else{
+        console.log('API Key')
+        this.setState({
+          invalid: true,
+          isLoading: false
+        })
+      }
+    })
     .then(data => {
       this.setState({
         isLoading: false,
@@ -52,7 +68,7 @@ componentDidMount(){
 
       })
     })
-  .catch(err => console.error(err))
+  .catch(err => console.log(err))
 }
 
 
@@ -62,6 +78,14 @@ componentDidMount(){
         <View style={styles.container}>
           <ActivityIndicator/>
         </View>
+      )
+    }
+    else if(this.state.invalid){
+      return(
+      <View style={styles.container}>
+        <Text>Landing Screen</Text>
+        <Text>API Error</Text>
+      </View>
       )
     }
     else{

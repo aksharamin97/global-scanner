@@ -4,8 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './screens/Home';
 import LandingScreen from './screens/Landing';
 import ScannerScreen from './screens/Scanner';
-
-import { createAppContainer, createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import HistoryScreen from './screens/History';
+import AccountScreen from './screens/Account';
+import Icon from 'react-native-vector-icons/Ionicons'
+import { createAppContainer, createStackNavigator, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
 
 
 
@@ -32,24 +34,69 @@ const AppStack = createStackNavigator(
   // }
 );
 
+
 //RootStack
-const RootStack = createStackNavigator(
+const ScanStack = createStackNavigator(
   {
-    Scanner: {
-      screen: ScannerScreen
+    Scan: {
+      screen: ScannerScreen,
+      
     },
-    Main: {
-      screen: AppStack
+    Landing: {
+      screen: LandingScreen
     }
   },
   {
-    // unmountInactiveRoutes: true,
-    initialRouteName:"Main",
-    mode: 'modal',
-    headerMode: 'none'
+    // unmountInactiveRoutes: false,
+    initialRouteName:"Scan",
+    // defaultNavigationOptions: "Scan"
+    // headerMode: "none"
+    // mode: 'modal',
+
 
   },
 );
+
+
+//TAB NAV
+const TabNav = createBottomTabNavigator({
+  Scan: {
+    screen: ScanStack,
+    navigationOptions:{
+      tabBarLabel: 'SCAN',
+      tabBarIcon:({tintColor})=>(
+        <Icon name='ios-barcode' type='ionicon' color={tintColor} size={24} />
+      ),
+    }
+  },
+  History: {
+    screen: HistoryScreen,
+    navigationOptions:{
+      tabBarLabel: 'HISTORY',
+      tabBarIcon:({tintColor})=>(
+        <Icon name='ios-time' type='ionicon' color={tintColor} size={24} />
+      )
+    }
+  },
+  Account: {
+    screen: AccountScreen,
+    navigationOptions:{
+      tabBarLabel: 'ACCOUNT',
+      tabBarIcon:({tintColor})=>(
+        <Icon name='ios-person' type='ionicon' color={tintColor} size={24} />
+      )
+    }
+  },
+},
+  {
+    initialRouteName: "Scan",
+    // mode: 'modal',
+    // headerMode: 'none',
+    swipeEnabled: true,
+    animationEnabled: true
+  },
+)
+
 
 //DRAWER NAV
 // const AppDrawerNavigator = createDrawerNavigator(
@@ -77,7 +124,7 @@ const RootStack = createStackNavigator(
 // )
 
 
-const AppContainer = createAppContainer(RootStack);
+const AppContainer = createAppContainer(TabNav);
 
 
 

@@ -42,12 +42,12 @@ componentDidMount(){
     })
   })
     .then((response) => {
-      console.log(response)
+      // console.log(response)
       if (response.ok) {
         return response.json()
       }
       else{
-        console.log('API Key')
+        // console.log('API Key')
         this.setState({
           invalid: true,
           isLoading: false

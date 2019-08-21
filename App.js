@@ -8,34 +8,35 @@ import HistoryScreen from './screens/History';
 import AccountScreen from './screens/Account';
 import Icon from 'react-native-vector-icons/Ionicons'
 import { createAppContainer, createStackNavigator, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
+import BarcodeScannerExample from './screens/Scanner';
 
 
 
 //AppStack
-const AppStack = createStackNavigator(
-  {
-    Home: {
-      screen: HomeScreen
-    },
-    Landing: {
-      screen: LandingScreen
-    },
+// const AppStack = createStackNavigator(
+//   {
+//     Home: {
+//       screen: HomeScreen
+//     },
+//     Landing: {
+//       screen: LandingScreen
+//     },
 
-  },
-  {
-    initialRouteName:"Home",
-  },
-  // {
-  //   defaultNavigationOptions: {
-  //     headerStyle:{
-  //       backgroundColor: 'orange'
-  //     }
-  //   }
-  // }
-);
+//   },
+//   {
+//     initialRouteName:"Home",
+//   },
+//   {
+//     defaultNavigationOptions: {
+//       headerStyle:{
+//         backgroundColor: 'orange'
+//       }
+//     }
+//   }
+// );
 
 
-//RootStack
+//ScanStack
 const ScanStack = createStackNavigator(
   {
     Scan: {
@@ -93,6 +94,7 @@ const TabNav = createBottomTabNavigator({
     // mode: 'modal',
     // headerMode: 'none',
     swipeEnabled: true,
+    resetOnBlur: true,
     animationEnabled: true
   },
 )

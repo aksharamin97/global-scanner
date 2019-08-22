@@ -12,27 +12,27 @@ import { createAppContainer, createStackNavigator, createDrawerNavigator, create
 
 
 //AppStack
-const AppStack = createStackNavigator(
-  {
-    Home: {
-      screen: HomeScreen
-    },
-    Landing: {
-      screen: LandingScreen
-    },
+// const AppStack = createStackNavigator(
+//   {
+//     Home: {
+//       screen: HomeScreen
+//     },
+//     Landing: {
+//       screen: LandingScreen
+//     },
 
-  },
-  {
-    initialRouteName:"Home",
-  },
-  // {
-  //   defaultNavigationOptions: {
-  //     headerStyle:{
-  //       backgroundColor: 'orange'
-  //     }
-  //   }
-  // }
-);
+//   },
+//   {
+//     initialRouteName:"Home",
+//   },
+//   // {
+//   //   defaultNavigationOptions: {
+//   //     headerStyle:{
+//   //       backgroundColor: 'orange'
+//   //     }
+//   //   }
+//   // }
+// );
 
 
 //RootStack
@@ -50,7 +50,7 @@ const ScanStack = createStackNavigator(
     // unmountInactiveRoutes: false,
     initialRouteName:"Scan",
     // defaultNavigationOptions: "Scan"
-    // headerMode: "none"
+    headerMode: "none",
     // mode: 'modal',
 
 

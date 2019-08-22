@@ -52,7 +52,7 @@ const ScanStack = createStackNavigator(
     // unmountInactiveRoutes: false,
     initialRouteName:"Scan",
     // defaultNavigationOptions: "Scan"
-    // headerMode: "none"
+    headerMode: "none",
     // mode: 'modal',
 
 

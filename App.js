@@ -6,9 +6,9 @@ import LandingScreen from './screens/Landing';
 import ScannerScreen from './screens/Scanner';
 import HistoryScreen from './screens/History';
 import AccountScreen from './screens/Account';
+import InfoScreen from './screens/Info';
 import Icon from 'react-native-vector-icons/Ionicons'
 import { createAppContainer, createStackNavigator, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
-import BarcodeScannerExample from './screens/Scanner';
 
 
 
@@ -44,12 +44,35 @@ const ScanStack = createStackNavigator(
       
     },
     Landing: {
-      screen: LandingScreen
+      screen: LandingScreen,
+      
     }
   },
   {
     // unmountInactiveRoutes: false,
     initialRouteName:"Scan",
+    // defaultNavigationOptions: "Scan"
+    // headerMode: "none"
+    // mode: 'modal',
+
+
+  },
+);
+
+//Account Stack
+const AccountStack = createStackNavigator(
+  {
+    Account: {
+      screen: AccountScreen,
+      
+    },
+    Info: {
+      screen: InfoScreen
+    }
+  },
+  {
+    // unmountInactiveRoutes: false,
+    initialRouteName:"Account",
     // defaultNavigationOptions: "Scan"
     // headerMode: "none"
     // mode: 'modal',
@@ -80,7 +103,7 @@ const TabNav = createBottomTabNavigator({
     }
   },
   Account: {
-    screen: AccountScreen,
+    screen: AccountStack,
     navigationOptions:{
       tabBarLabel: 'ACCOUNT',
       tabBarIcon:({tintColor})=>(
@@ -127,7 +150,6 @@ const TabNav = createBottomTabNavigator({
 
 
 const AppContainer = createAppContainer(TabNav);
-
 
 
 export default class App extends React.Component{

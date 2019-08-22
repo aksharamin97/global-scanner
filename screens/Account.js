@@ -11,6 +11,10 @@ export default class Account extends React.Component{
     return (  
       <View style={styles.container}>
         <Text>Account Screen</Text>
+        <Button
+          title="Go to Info"
+          onPress={() => this.props.navigation.navigate("Info")}
+        />
       </View>
     );
   }

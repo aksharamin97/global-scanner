@@ -4,43 +4,23 @@ import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './screens/Home';
 import LandingScreen from './screens/Landing';
 import ScannerScreen from './screens/Scanner';
+import CameraScreen from './screens/Camera';
 import HistoryScreen from './screens/History';
-import AccountScreen from './screens/Account';
 import InfoScreen from './screens/Info';
+
 import Icon from 'react-native-vector-icons/Ionicons'
-import { createAppContainer, createStackNavigator, createDrawerNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createAppContainer, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-
-
-//AppStack
-// const AppStack = createStackNavigator(
-//   {
-//     Home: {
-//       screen: HomeScreen
-//     },
-//     Landing: {
-//       screen: LandingScreen
-//     },
-
-//   },
-//   {
-//     initialRouteName:"Home",
-//   },
-//   {
-//     defaultNavigationOptions: {
-//       headerStyle:{
-//         backgroundColor: 'orange'
-//       }
-//     }
-//   }
-// );
 
 
 //ScanStack
 const ScanStack = createStackNavigator(
   {
     Scan: {
-      screen: ScannerScreen,
+      screen: CameraScreen,
+      navigationOptions:{
+        header: null
+      }
       
     },
     Landing: {
@@ -52,35 +32,12 @@ const ScanStack = createStackNavigator(
     // unmountInactiveRoutes: false,
     initialRouteName:"Scan",
     // defaultNavigationOptions: "Scan"
-    headerMode: "none",
+    // headerMode: "none",
     // mode: 'modal',
 
 
   },
 );
-
-//Account Stack
-// const AccountStack = createStackNavigator(
-//   {
-//     Account: {
-//       screen: AccountScreen,
-      
-//     },
-//     Info: {
-//       screen: InfoScreen
-//     }
-//   },
-//   {
-//     // unmountInactiveRoutes: false,
-//     initialRouteName:"Account",
-//     // defaultNavigationOptions: "Scan"
-//     // headerMode: "none"
-//     // mode: 'modal',
-
-
-//   },
-// );
-
 
 //TAB NAV
 const TabNav = createBottomTabNavigator({
@@ -122,31 +79,6 @@ const TabNav = createBottomTabNavigator({
   },
 )
 
-
-//DRAWER NAV
-// const AppDrawerNavigator = createDrawerNavigator(
-//   {
-//     Home: {
-//       screen: HomeScreen
-//     },
-//     Landing: {
-//       screen: LandingScreen
-//     },
-//     Scanner: {
-//       screen: ScannerScreen
-//     }
-//   },
-//   {
-//     initialRouteName:"Home"
-//   },
-//   {
-//     defaultNavigationOptions: {
-//       headerStyle:{
-//         backgroundColor: 'orange'
-//       }
-//     }
-//   }
-// )
 
 
 const AppContainer = createAppContainer(TabNav);

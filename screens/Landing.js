@@ -71,8 +71,7 @@ componentDidMount(){
     // }
     })
   .catch(err => console.log(err))
-}
-
+  }
 
   render(){
     if(this.state.isLoading){
@@ -93,33 +92,46 @@ componentDidMount(){
     else{
       return (
         <View style={styles.container}>
-        {/* <Image
-          style={{width: 50, height: 50}}
-          source={{uri: this.state.tradeItemImageUrl}}
-        /> */}
           <Text>Landing Screen</Text>
+
+          {/* gtin */}
           <Text>GTIN: {this.state.gtin}</Text>
+
+          {/* brandName */}
           {this.state.brandName.map((val, key)=> (
             <Text key={key}>Brand Name:  lang= {val.lang}{" "} value ={val.value}</Text>
             ))
           }
+          {/* gpcCode */}
           <Text>GPC: {this.state.gpc}</Text>
+          
+          {/* netContent */}
           {this.state.netContent.map((val, key)=> (
             <Text key={key}>Net Content:  lang= {val.lang}{" "} value ={val.value}</Text>
             ))
           }
+          {/* status */}
           <Text>Status: {this.state.status}</Text>
+          
+          {/* targetMarketCountryCode */}
           {this.state.targetMarketCountryCode.map((val, key)=> (
             <Text key={key}>Country Code:  lang= {val.lang}{" "} value ={val.value}</Text>
             ))
           }
+          
+          {/* tradeItemDescription */}
           {this.state.tradeItemDescription.map((val, key)=> (
             <Text key={key}>Description:  lang= {val.lang}{" "} value ={val.value}</Text>
             ))
           }
-          <Text>tradeItemImageUrl: {this.state.tradeItemImageUrl}</Text>
+          {/* tradeItemImageUrl */}
           {this.state.tradeItemImageUrl.map((val, key)=> (
-            <Text key={key}>URL:  lang= {val.lang}{" "} value ={val.value}</Text>
+            // <Text key={key}>URL:  lang= {val.lang}{" "} value ={val.value}</Text>
+            <Image
+              key={key}
+              style={{width: 50, height: 50}}
+              source={{uri: val.value}}
+          />
             ))
           }
         </View>

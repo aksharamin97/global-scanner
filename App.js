@@ -60,26 +60,26 @@ const ScanStack = createStackNavigator(
 );
 
 //Account Stack
-const AccountStack = createStackNavigator(
-  {
-    Account: {
-      screen: AccountScreen,
+// const AccountStack = createStackNavigator(
+//   {
+//     Account: {
+//       screen: AccountScreen,
       
-    },
-    Info: {
-      screen: InfoScreen
-    }
-  },
-  {
-    // unmountInactiveRoutes: false,
-    initialRouteName:"Account",
-    // defaultNavigationOptions: "Scan"
-    // headerMode: "none"
-    // mode: 'modal',
+//     },
+//     Info: {
+//       screen: InfoScreen
+//     }
+//   },
+//   {
+//     // unmountInactiveRoutes: false,
+//     initialRouteName:"Account",
+//     // defaultNavigationOptions: "Scan"
+//     // headerMode: "none"
+//     // mode: 'modal',
 
 
-  },
-);
+//   },
+// );
 
 
 //TAB NAV
@@ -102,12 +102,12 @@ const TabNav = createBottomTabNavigator({
       )
     }
   },
-  Account: {
-    screen: AccountStack,
+  Info: {
+    screen: InfoScreen,
     navigationOptions:{
-      tabBarLabel: 'ACCOUNT',
+      tabBarLabel: 'INFO',
       tabBarIcon:({tintColor})=>(
-        <Icon name='ios-person' type='ionicon' color={tintColor} size={24} />
+        <Icon name='ios-information-circle-outline' type='ionicon' color={tintColor} size={24} />
       )
     }
   },

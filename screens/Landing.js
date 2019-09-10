@@ -36,6 +36,31 @@ EStyleSheet.build({
   $peach: "#fbb034"
 });
 
+// function WarningBanner(props) {
+//   console.log(props);
+//   if (props > 1) {
+//     return (
+//       <View>
+//         {this.state.brandName.map((val, key) => (
+//           <Text key={key} style={[styles.titleText, {}]}>
+//             {val.value}
+//           </Text>
+//         ))}
+//       </View>
+//     );
+//   } else {
+//     return (
+//       <View>
+//         {this.state.brandName.map((val, key) => (
+//           <Text key={key} style={[styles.titleText, {}]}>
+//             {val.value}
+//           </Text>
+//         ))}
+//       </View>
+//     );
+//   }
+// }
+
 export default class Profile extends React.Component {
   static navigationOptions = {
     title: "Landing",
@@ -122,184 +147,420 @@ export default class Profile extends React.Component {
       );
     } else if (this.state.invalid) {
       return (
-        <View style={styles.container}>
-          <Text>Landing Screen</Text>
-          <Text>API Error</Text>
+        <View>
+          <Svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="134"
+            height="134"
+            viewBox="0 0 134 134"
+            style={{
+              marginLeft: "30%",
+              marginTop: "40%",
+              marginBottom: "10%",
+              marginRight: "50%"
+            }}
+          >
+            <G transform="translate(-121 -342)">
+              <Circle
+                cx="67"
+                cy="67"
+                r="67"
+                transform="translate(121 342)"
+                fill="#CF0715"
+              />
+              <Path
+                d="M8928.711,1015.21l-67.07,67.124"
+                transform="translate(-8705.852 -638.301)"
+                fill="none"
+                stroke="#fff"
+                strokeWidth="15"
+              />
+              <Path
+                d="M8861.641,1015.21l67.777,67.826"
+                transform="translate(-8705.852 -638.301)"
+                fill="none"
+                stroke="#fff"
+                strokeWidth="15"
+              />
+            </G>
+          </Svg>
+          <Text
+            style={{
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: 18
+            }}
+          >
+            API Error
+          </Text>
         </View>
       );
     } else {
-      return (
-        <ScrollView style={[styles.container, {}]}>
-          <View
-            style={{
-              paddingVertical: 10,
-              backgroundColor: EStyleSheet.value("$light_gray"),
-              flex: 1,
-              flexDirection: "row",
-              justifyContent: "center"
-            }}
-          >
-            <Svg height="100%" width="10%" viewBox="0 0 20 20">
-              <G
-                id="Group_68"
-                data-name="Group 68"
-                transform="translate(-46 -102)"
-              >
-                <Circle
-                  id="Ellipse_6"
-                  data-name="Ellipse 6"
-                  cx="10"
-                  cy="10"
-                  r="10"
-                  transform="translate(46 102)"
-                  fill="#4db101"
-                />
-                <Path
-                  id="Path_55"
-                  data-name="Path 55"
-                  d="M8862.537,918.606l3.039,3.336,6.288-6.9"
-                  transform="translate(-8811.076 -806.243)"
-                  fill="none"
-                  stroke="#fff"
-                  stroke-width="2"
-                />
-              </G>
-            </Svg>
-            <Text
+      if (this.state.tradeItemImageUrl.length <= 1) {
+        return (
+          <ScrollView style={[styles.container, {}]}>
+            <View
               style={{
-                color: "#4db101"
+                paddingVertical: 10,
+                backgroundColor: EStyleSheet.value("$light_gray"),
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center"
               }}
             >
-              This product is active verified by GS1
-            </Text>
-          </View>
-
-          <View>
-            <View
-              style={
-                {
-                  // borderBottomColor: EStyleSheet.value("$light_gray_shade"),
-                  // borderBottomWidth: 1.5
-                }
-              }
-            >
-              <View
+              <Svg height="100%" width="10%" viewBox="0 0 20 20">
+                <G
+                  id="Group_68"
+                  data-name="Group 68"
+                  transform="translate(-46 -102)"
+                >
+                  <Circle
+                    id="Ellipse_6"
+                    data-name="Ellipse 6"
+                    cx="10"
+                    cy="10"
+                    r="10"
+                    transform="translate(46 102)"
+                    fill="#4db101"
+                  />
+                  <Path
+                    id="Path_55"
+                    data-name="Path 55"
+                    d="M8862.537,918.606l3.039,3.336,6.288-6.9"
+                    transform="translate(-8811.076 -806.243)"
+                    fill="none"
+                    stroke="#fff"
+                    strokeWidth="2"
+                  />
+                </G>
+              </Svg>
+              <Text
                 style={{
-                  flex: 1,
-                  flexDirection: "row",
-                  justifyContent:"space-between",
-                  marginTop: 30,
-                  marginBottom: 30,
-                  marginLeft: 30,
-                  marginRight: 30
+                  color: "#4db101"
                 }}
               >
-                <View style={{ width: "60%"}}>
-                  {/* brandName */}
-                  {this.state.brandName.map((val, key) => (
-                    // <Text key={key}>Brand Name:  lang= {val.lang}{" "} value ={val.value}</Text>
-                    <Text key={key} style={[styles.titleText, {}]}>
-                      {val.value}
-                    </Text>
-                  ))}
-                  {/* gpcCode */}
-                  <Text style={styles.captionText}>GPC: {this.state.gpc}</Text>
-                  {/* Custom TouchableOpacity */}
-                  {/* <TouchableOpacity
-                    onPress={() => Alert.alert(`Pressed`)}
-                    style={[styles.btnNext, { marginVertical: 15 }]}
-                  >
-                    <Text style={[styles.btnText]}>Save</Text>
-                  </TouchableOpacity> */}
-                </View>
-                <View>
-                  {/* tradeItemImageUrl */}
-                  {this.state.tradeItemImageUrl.map((val, key) => (
-                    // <Text key={key}>URL:  lang= {val.lang}{" "} value ={val.value}</Text>
-                    <Image
-                      key={key}
-                      style={{ width: 100, height: 100 }}
-                      source={{ uri: val.value }}
-                    />
-                  ))}
-                </View>
-              </View>
+                This product is active verified by GS1
+              </Text>
             </View>
 
             <View>
-              {/* gtin */}
-              <View style={styles.sectionGTIN}>
-                <Text style={styles.h5}>GTIN</Text>
-                <Text style={styles.h4}>{this.state.gtin}</Text>
+              <View
+                style={
+                  {
+                    // borderBottomColor: EStyleSheet.value("$light_gray_shade"),
+                    // borderBottomWidth: 1.5
+                  }
+                }
+              >
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    marginTop: 30,
+                    marginBottom: 30,
+                    marginLeft: 30,
+                    marginRight: 30
+                  }}
+                >
+                  <View style={{ width: "60%" }}>
+                    {/* brandName */}
+                    {this.state.brandName.map((val, key) => (
+                      // <Text key={key}>Brand Name:  lang= {val.lang}{" "} value ={val.value}</Text>
+                      <Text key={key} style={[styles.titleText, {}]}>
+                        {val.value}
+                      </Text>
+                    ))}
+
+                    {/* gpcCode */}
+                    <Text style={styles.captionText}>
+                      GPC: {this.state.gpc}
+                    </Text>
+                    {/* Custom TouchableOpacity */}
+                    {/* <TouchableOpacity
+                      onPress={() => Alert.alert(`Pressed`)}
+                      style={[styles.btnNext, { marginVertical: 15 }]}
+                    >
+                      <Text style={[styles.btnText]}>Save</Text>
+                    </TouchableOpacity> */}
+                  </View>
+                  <View>
+                    {/* tradeItemImageUrl */}
+                    {this.state.tradeItemImageUrl.map((val, key) => (
+                      // <Text key={key}>URL:  lang= {val.lang}{" "} value ={val.value}</Text>
+                      <Image
+                        key={key}
+                        style={{ width: 100, height: 100 }}
+                        source={{ uri: val.value }}
+                      />
+                    ))}
+                  </View>
+                </View>
               </View>
 
-              {/* netContent */}
-              <Text style={[styles.h1, { marginLeft: 20, marginVertical: 15 }]}>
-                Net Content
-              </Text>
-              <ScrollView
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                style={{ paddingRight: 20 }}
-              >
-                {this.state.netContent.map((val, key) => (
-                  <View key={key} style={styles.sectionNetContent}>
-                    <Text style={styles.h5}>{val.measurementUnitCode}</Text>
-                    <Text style={styles.h4}>{val.quantity}</Text>
-                  </View>
-                ))}
-              </ScrollView>
+              <View>
+                {/* gtin */}
+                <View style={styles.sectionGTIN}>
+                  <Text style={styles.h5}>GTIN</Text>
+                  <Text style={styles.h4}>{this.state.gtin}</Text>
+                </View>
 
-              {/* targetMarketCountryCode */}
-              {/* {this.state.targetMarketCountryCode.map((val, key)=> (
-                <Text key={key}>Country Code:  lang= {val.lang}{" "} value ={val.value}</Text>
-                ))
-              } */}
-              <View style={styles.section}>
+                {/* netContent */}
+                <Text
+                  style={[styles.h1, { marginLeft: 20, marginVertical: 15 }]}
+                >
+                  Net Content
+                </Text>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  style={{ paddingRight: 20 }}
+                >
+                  {this.state.netContent.map((val, key) => (
+                    <View key={key} style={styles.sectionNetContent}>
+                      <Text style={styles.h5}>{val.measurementUnitCode}</Text>
+                      <Text style={styles.h4}>{val.quantity}</Text>
+                    </View>
+                  ))}
+                </ScrollView>
+
                 <Text
                   style={[styles.h1, { marginLeft: 20, marginVertical: 15 }]}
                 >
                   Country Code
                 </Text>
-                <Text
-                  style={[styles.h3, { marginLeft: 20}]}
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: "row"
+                  }}
                 >
-                  {this.state.targetMarketCountryCode}
+                  {this.state.targetMarketCountryCode.map((val, key) => (
+                    <Text key={key} style={[styles.h3, { marginLeft: 20 }]}>
+                      {this.state.targetMarketCountryCode[key]}
+                    </Text>
+                  ))}
+                </View>
+
+                {/* tradeItemDescription */}
+                <Text
+                  style={[styles.h1, { marginLeft: 20, marginVertical: 15 }]}
+                >
+                  Description
                 </Text>
+                {this.state.tradeItemDescription.map((val, key) => (
+                  <View
+                    key={key}
+                    style={[styles.section, { marginHorizontal: 20 }]}
+                  >
+                    <Text
+                      style={[
+                        styles.h5,
+                        {
+                          borderBottomColor: "black",
+                          borderBottomWidth: 1,
+                          marginBottom: 10
+                        }
+                      ]}
+                    >
+                      {val.lang}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.captionText,
+                        { fontSize: 16, fontWeight: "600" }
+                      ]}
+                    >
+                      {val.value}
+                    </Text>
+                  </View>
+                ))}
+              </View>
+            </View>
+          </ScrollView>
+        );
+      } else {
+        return (
+          <ScrollView style={[styles.container, {}]}>
+            <View
+              style={{
+                paddingVertical: 10,
+                backgroundColor: EStyleSheet.value("$light_gray"),
+                flex: 1,
+                flexDirection: "row",
+                justifyContent: "center"
+              }}
+            >
+              <Svg height="100%" width="10%" viewBox="0 0 20 20">
+                <G transform="translate(-46 -102)">
+                  <Circle
+                    cx="10"
+                    cy="10"
+                    r="10"
+                    transform="translate(46 102)"
+                    fill="#4db101"
+                  />
+                  <Path
+                    d="M8862.537,918.606l3.039,3.336,6.288-6.9"
+                    transform="translate(-8811.076 -806.243)"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-width="2"
+                  />
+                </G>
+              </Svg>
+              <Text
+                style={{
+                  color: "#4db101"
+                }}
+              >
+                This product is active verified by GS1
+              </Text>
+            </View>
+
+            <View>
+              <View
+                style={
+                  {
+                    // borderBottomColor: EStyleSheet.value("$light_gray_shade"),
+                    // borderBottomWidth: 1.5
+                  }
+                }
+              >
+                <View
+                  style={{
+                    // flex: 1,
+                    // flexDirection: "row",
+                    justifyContent: "space-between",
+                    marginTop: 30,
+                    marginBottom: 30,
+                    marginLeft: 30,
+                    marginRight: 30
+                  }}
+                >
+                  <View style={{ width: "60%" }}>
+                    {/* brandName */}
+                    {this.state.brandName.map((val, key) => (
+                      // <Text key={key}>Brand Name:  lang= {val.lang}{" "} value ={val.value}</Text>
+                      <Text key={key} style={[styles.titleText, {}]}>
+                        {val.value}
+                      </Text>
+                    ))}
+
+                  {/* <WarningBanner props={this.state.brandName.length} /> */}
+                  
+                    {/* gpcCode */}
+                    <Text style={styles.captionText}>
+                      GPC: {this.state.gpc}
+                    </Text>
+                    {/* Custom TouchableOpacity */}
+                    {/* <TouchableOpacity
+                      onPress={() => Alert.alert(`Pressed`)}
+                      style={[styles.btnNext, { marginVertical: 15 }]}
+                    >
+                      <Text style={[styles.btnText]}>Save</Text>
+                    </TouchableOpacity> */}
+                  </View>
+                  <ScrollView
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    style={{ paddingRight: 20 }}
+                  >
+                    {/* tradeItemImageUrl */}
+                    {this.state.tradeItemImageUrl.map((val, key) => (
+                      // <Text key={key}>URL:  lang= {val.lang}{" "} value ={val.value}</Text>
+                      <Image
+                        key={key}
+                        style={{ width: 100, height: 100 }}
+                        source={{ uri: val.value }}
+                      />
+                    ))}
+                  </ScrollView>
+                </View>
               </View>
 
-              {/* tradeItemDescription */}
-              <Text style={[styles.h1, { marginLeft: 20, marginVertical: 15 }]}>
-                Description
-              </Text>
-              {this.state.tradeItemDescription.map((val, key) => (
-                <View key={key} style={[styles.section, { marginHorizontal: 20 }]}>
-                  <Text
-                    style={[
-                      styles.h5,
-                      {
-                        borderBottomColor: "black",
-                        borderBottomWidth: 1,
-                        marginBottom: 10
-                      }
-                    ]}
-                  >
-                    {val.lang}
-                  </Text>
-                  <Text
-                    style={[
-                      styles.captionText,
-                      { fontSize: 16, fontWeight: "600" }
-                    ]}
-                  >
-                    {val.value}
-                  </Text>
+              <View>
+                {/* gtin */}
+                <View style={styles.sectionGTIN}>
+                  <Text style={styles.h5}>GTIN</Text>
+                  <Text style={styles.h4}>{this.state.gtin}</Text>
                 </View>
-              ))}
+
+                {/* netContent */}
+                <Text
+                  style={[styles.h1, { marginLeft: 20, marginVertical: 15 }]}
+                >
+                  Net Content
+                </Text>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                  style={{ paddingRight: 20 }}
+                >
+                  {this.state.netContent.map((val, key) => (
+                    <View key={key} style={styles.sectionNetContent}>
+                      <Text style={styles.h5}>{val.measurementUnitCode}</Text>
+                      <Text style={styles.h4}>{val.quantity}</Text>
+                    </View>
+                  ))}
+                </ScrollView>
+
+                <Text
+                  style={[styles.h1, { marginLeft: 20, marginVertical: 15 }]}
+                >
+                  Country Code
+                </Text>
+                <View
+                  style={{
+                    flex: 1,
+                    flexDirection: "row"
+                  }}
+                >
+                  {this.state.targetMarketCountryCode.map((val, key) => (
+                    <Text key={key} style={[styles.h3, { marginLeft: 20 }]}>
+                      {this.state.targetMarketCountryCode[key]}
+                    </Text>
+                  ))}
+                </View>
+
+                {/* tradeItemDescription */}
+                <Text
+                  style={[styles.h1, { marginLeft: 20, marginVertical: 15 }]}
+                >
+                  Description
+                </Text>
+                {this.state.tradeItemDescription.map((val, key) => (
+                  <View
+                    key={key}
+                    style={[styles.section, { marginHorizontal: 20 }]}
+                  >
+                    <Text
+                      style={[
+                        styles.h5,
+                        {
+                          borderBottomColor: "black",
+                          borderBottomWidth: 1,
+                          marginBottom: 10
+                        }
+                      ]}
+                    >
+                      {val.lang}
+                    </Text>
+                    <Text
+                      style={[
+                        styles.captionText,
+                        { fontSize: 16, fontWeight: "600" }
+                      ]}
+                    >
+                      {val.value}
+                    </Text>
+                  </View>
+                ))}
+              </View>
             </View>
-          </View>
-        </ScrollView>
-      );
+          </ScrollView>
+        );
+      }
     }
   }
 }

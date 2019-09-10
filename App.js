@@ -30,6 +30,7 @@ const ScanStack = createStackNavigator(
   },
   {
     // unmountInactiveRoutes: false,
+    // initialRouteName:"Scan",
     initialRouteName:"Scan",
     // defaultNavigationOptions: "Scan"
     // headerMode: "none",
@@ -70,6 +71,15 @@ const TabNav = createBottomTabNavigator({
   },
 },
   {
+    tabBarOptions: {
+      activeTintColor: '#f26334',
+      inactiveTineColor: 'f4f4f4',
+      style:{
+        backgroundColor: 'white',
+        borderTopWidth: 0,
+        backgroundColor: 'rgba(52, 52, 52, 0.8)'
+      }
+    },
     initialRouteName: "Scan",
     // mode: 'modal',
     // headerMode: 'none',

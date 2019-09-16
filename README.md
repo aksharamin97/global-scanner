@@ -1,6 +1,6 @@
 # global-scanner
 
 ## Info
-Barcode Scanner that built to display GS1 Key Registry Data
-Currently private, requires Api key
-Available for IOS and Android
+1. Barcode Scanner that built to display GS1 Key Registry Data
+1. Currently private, requires Api key
+1. Available for IOS and Android

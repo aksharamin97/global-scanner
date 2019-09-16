@@ -2,13 +2,20 @@
   "expo": {
     "name": "GO Scanner",
     "slug": "global-scanner",
-    "privacy": "public",
+    "privacy": "unlisted",
     "sdkVersion": "33.0.0",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
+    "ios": {
+      "bundleIdentifier": "com.gs1.globalscanner",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.gs1.globalscanner"
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,9 +29,7 @@
     },
     "assetBundlePatterns": [
       "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    }
+    ]
+
   }
 }

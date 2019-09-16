@@ -1,13 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-import HomeScreen from './screens/Home';
 import LandingScreen from './screens/Landing';
-import ScannerScreen from './screens/Scanner';
 import CameraScreen from './screens/Camera';
-import HistoryScreen from './screens/History';
 import InfoScreen from './screens/Info';
-
 import Icon from 'react-native-vector-icons/Ionicons'
 import { createAppContainer, createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
@@ -40,7 +35,7 @@ const ScanStack = createStackNavigator(
   },
 );
 
-//TAB NAV
+//Bottom Tab Navigator
 const TabNav = createBottomTabNavigator({
   Scan: {
     screen: ScanStack,
@@ -51,15 +46,15 @@ const TabNav = createBottomTabNavigator({
       ),
     }
   },
-  History: {
-    screen: HistoryScreen,
-    navigationOptions:{
-      tabBarLabel: 'HISTORY',
-      tabBarIcon:({tintColor})=>(
-        <Icon name='ios-time' type='ionicon' color={tintColor} size={24} />
-      )
-    }
-  },
+  // History: {
+  //   screen: HistoryScreen,
+  //   navigationOptions:{
+  //     tabBarLabel: 'HISTORY',
+  //     tabBarIcon:({tintColor})=>(
+  //       <Icon name='ios-time' type='ionicon' color={tintColor} size={24} />
+  //     )
+  //   }
+  // },
   Info: {
     screen: InfoScreen,
     navigationOptions:{
@@ -77,7 +72,7 @@ const TabNav = createBottomTabNavigator({
       style:{
         backgroundColor: 'white',
         borderTopWidth: 0,
-        backgroundColor: 'rgba(52, 52, 52, 0.8)'
+        backgroundColor: 'rgba(256, 256, 256, 0.8)'
       }
     },
     initialRouteName: "Scan",

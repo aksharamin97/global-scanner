@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, SafeAreaView, TextInput } from 'react-native';
 import * as Permissions from 'expo-permissions';
 import { Camera } from 'expo-camera';
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class CameraExample extends React.Component {
   state = {
@@ -10,7 +11,6 @@ export default class CameraExample extends React.Component {
     flashMode: Camera.Constants.FlashMode.off,
     autoFocus: Camera.Constants.AutoFocus.on,
     scanned: false,
-
   };
 
 
@@ -27,51 +27,58 @@ export default class CameraExample extends React.Component {
       return <Text>No access to camera</Text>;
     } else {
       return (
-        <View style={{ flex: 1 }}>
-          <Camera style={{ flex: 1 }} type={this.state.type} flashMode={this.state.flashMode} onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned }>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: 'transparent',
-                flexDirection: 'row',
-              }}>
-              <TouchableOpacity
+          <View style={{ flex: 1 }}>
+            <Camera style={{ flex: 1 }} type={this.state.type} flashMode={this.state.flashMode} onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned }>
+              <View style={{flexDirection: 'row', padding: 10, backgroundColor: 'white', marginHorizontal: 20, shadowOffset:{width: 0, height: 0}, shadowColor: 'black', shadowOpacity: 0.2, elevation: 1, marginTop: 50}}>
+                <Icon name='ios-search' size={20}/>
+                <TextInput placeholder = '  Enter GTIN' placeholderTextColor= 'grey' style={{flex:1, fontWeight: '700', backgroundColor:'white'}} underlineColorAndroid= 'transparent'/>
+              </View>
+              <View
                 style={{
-                  flex: 0.1,
-                  alignSelf: 'flex-end',
-                  alignItems: 'center',
-                }}
-                onPress={() => {
-                  this.setState({
-                    type:
-                      this.state.type === Camera.Constants.Type.back
-                        ? Camera.Constants.Type.front
-                        : Camera.Constants.Type.back,
-                  });
+                  flex: 1,
+                  backgroundColor: 'transparent',
+                  flexDirection: 'row',
                 }}>
-                
-                <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={{
-                  flex: 0.5,
-                  alignSelf: 'flex-end',
-                  alignItems: 'center',
-                }}
-                onPress={() => {
-                  this.setState({
-                    flashMode:
-                      this.state.flashMode === Camera.Constants.FlashMode.off
-                        ? Camera.Constants.FlashMode.torch
-                        : Camera.Constants.FlashMode.off,
-                  });
-                }}>
-                
-                <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flash </Text>
-              </TouchableOpacity>
-            </View>
-          </Camera>
-        </View>
+                <TouchableOpacity
+                  style={{
+                    flex: 0.5,
+                    alignSelf: 'flex-end',
+                    alignItems: 'center',
+                  }}
+                  onPress={() => {
+                    this.setState({
+                      type:
+                        this.state.type === Camera.Constants.Type.back
+                          ? Camera.Constants.Type.front
+                          : Camera.Constants.Type.back,
+                    });
+                  }}>
+                  
+                  {/* <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text> */}
+                  <Icon name='ios-reverse-camera' type='ionicon' color='white' size={48} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={{
+                    flex: 0.5,
+                    alignSelf: 'flex-end',
+                    alignItems: 'center',
+                  }}
+                  onPress={() => {
+                    this.setState({
+                      flashMode:
+                        this.state.flashMode === Camera.Constants.FlashMode.off
+                          ? Camera.Constants.FlashMode.torch
+                          : Camera.Constants.FlashMode.off,
+                    });
+                  }}>
+                  
+                  {/* <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flash </Text> */}
+                  <Icon name='ios-flash' type='ionicon' color='white' size={40} />
+                </TouchableOpacity>
+              </View>
+            </Camera>
+          </View>
+        // </View>
       );
     }
   }

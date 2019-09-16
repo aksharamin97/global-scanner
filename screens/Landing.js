@@ -15,6 +15,7 @@ import { compose } from "recompose";
 import { getAppLoadingLifecycleEmitter } from "expo/build/launch/AppLoading";
 import Svg, { Circle, Path, G } from "react-native-svg";
 
+//api_file.js contains the Key Registry key
 var api_file = require("../api_file");
 
 const entireScreenWidth = Dimensions.get("window").width;
@@ -239,7 +240,7 @@ export default class Profile extends React.Component {
                   color: "#4db101"
                 }}
               >
-                This product is active verified by GS1
+                This product is verified by GS1
               </Text>
             </View>
 
